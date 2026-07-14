@@ -2,9 +2,13 @@
 
 Jeu web où il faut attraper un maximum de mouches en 60 secondes !
 
-## Jouer
+## Jouer en ligne
 
-Ouvre `index.html` dans ton navigateur, ou lance un serveur local :
+**https://attrape-des-mouches.vercel.app**
+
+Code source : **https://github.com/Aaronsar/attrape-des-mouches**
+
+## Jouer en local
 
 ```bash
 npx serve .
