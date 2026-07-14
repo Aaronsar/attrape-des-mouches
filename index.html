@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attrape des Mouches</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Écran d'accueil -->
+    <div id="screen-home" class="screen active">
+      <header class="hero">
+        <div class="fly-icon">🪰</div>
+        <h1>Attrape des Mouches</h1>
+        <p class="tagline">Clique vite, vise juste, bats ton record !</p>
+      </header>
+
+      <section class="rules-card">
+        <h2>📋 Règles du jeu</h2>
+        <ol class="rules-list">
+          <li><strong>Objectif :</strong> attraper le maximum de mouches avant la fin du chrono.</li>
+          <li><strong>Durée :</strong> chaque partie dure <strong>60 secondes</strong>.</li>
+          <li><strong>Comment jouer :</strong> clique ou touche une mouche pour l'attraper.</li>
+          <li><strong>Points :</strong>
+            <ul>
+              <li>🪰 Mouche classique → <strong>10 pts</strong></li>
+              <li>⚡ Mouche rapide → <strong>25 pts</strong></li>
+              <li>✨ Mouche dorée → <strong>50 pts</strong></li>
+            </ul>
+          </li>
+          <li><strong>Combo :</strong> enchaîne les captures sans laisser une mouche s'échapper pendant 3 s → bonus x2 sur la prochaine capture.</li>
+          <li><strong>Difficulté :</strong> plus le temps passe, plus les mouches apparaissent et bougent vite.</li>
+          <li><strong>Pénalité :</strong> si une mouche disparaît toute seule, tu perds <strong>5 points</strong>.</li>
+        </ol>
+      </section>
+
+      <div class="home-actions">
+        <button id="btn-play" class="btn btn-primary">Jouer !</button>
+        <p class="best-score">Meilleur score : <span id="best-score">0</span> pts</p>
+      </div>
+    </div>
+
+    <!-- Écran de jeu -->
+    <div id="screen-game" class="screen">
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">Score</span>
+          <span id="score" class="hud-value">0</span>
+        </div>
+        <div class="hud-item hud-timer">
+          <span class="hud-label">Temps</span>
+          <span id="timer" class="hud-value">60</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Combo</span>
+          <span id="combo" class="hud-value">—</span>
+        </div>
+      </div>
+
+      <div id="game-area" aria-label="Zone de jeu — clique sur les mouches">
+        <div id="combo-banner" class="combo-banner hidden">COMBO x2 !</div>
+      </div>
+
+      <button id="btn-quit" class="btn btn-secondary btn-quit">Quitter</button>
+    </div>
+
+    <!-- Écran de fin -->
+    <div id="screen-end" class="screen">
+      <div class="end-card">
+        <div class="end-icon">🏆</div>
+        <h2>Temps écoulé !</h2>
+        <p class="final-score">Score final : <strong id="final-score">0</strong> pts</p>
+        <p id="end-message" class="end-message"></p>
+        <p id="new-record" class="new-record hidden">🎉 Nouveau record !</p>
+        <div class="end-stats">
+          <div class="stat">
+            <span class="stat-value" id="stat-caught">0</span>
+            <span class="stat-label">Attrapées</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="stat-missed">0</span>
+            <span class="stat-label">Échappées</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="stat-best-combo">0</span>
+            <span class="stat-label">Meilleur combo</span>
+          </div>
+        </div>
+        <div class="end-actions">
+          <button id="btn-replay" class="btn btn-primary">Rejouer</button>
+          <button id="btn-menu" class="btn btn-secondary">Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
